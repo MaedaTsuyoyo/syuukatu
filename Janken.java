@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import tool.Page;
-//乱数を使うためのインポート（クラスライブラリ）
 import java.util.Random;
 
 @WebServlet("/janken")
@@ -23,19 +22,15 @@ public class Janken extends HttpServlet{
 
             request.setCharacterEncoding("UTF-8");
             String human = request.getParameter("te");
-            //ここで0-2の整数（int）で乱数を発生
             int comp = new Random().nextInt(3);
  
             Page.header(out);
             out.println("あなたは" + human + "<br/>");
             if(comp == 0){
-                //乱数が0のときはぐー
                 out.println("コンピューターは ぐー");
             }else if(comp == 1){
-                //乱数が1のときはちょき
                 out.println("コンピューターは ちょき");
             }else{
-                //乱数が2のときはぱー
                 out.println("コンピューターは ぱー");                    
             }
             Page.footer(out);
